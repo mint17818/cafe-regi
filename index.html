@@ -23,7 +23,7 @@
     <h1>カメラレジシステム</h1>
 
     <div id="setup">
-        <button id="start-btn" onclick="initSystem()">レジを開始する</button>
+        <button id="start-btn" onclick="initSystem()">はじまる</button>
         <p>※クリックするとカメラと音が有効になります</p>
     </div>
 
@@ -35,20 +35,20 @@
     <div id="result-container">
         <h2 id="item-name">商品名</h2>
         <p class="price"><span id="item-price">0</span>円</p>
-        <button onclick="resumeScanning()">次の商品をスキャン</button>
+        <button onclick="resumeScanning()">つぎのちゅうもん</button>
     </div>
 
     <div id="cart">
-        <h3>ショッピングカート</h3>
+        <h3>かったもの</h3>
         <div id="cart-items"></div>
-        <div class="total">合計: <span id="total-price">0</span>円</div>
-        <button style="width:100%; background:#95a5a6;" onclick="clearCart()">カートを空にする</button>
+        <div class="total">ごうけい: <span id="total-price">0</span>えん</div>
+        <button style="width:100%; background:#95a5a6;" onclick="clearCart()">もういちどはじめる</button>
     </div>
 
     <script>
         const itemMaster = {
-            "ピザトースト": { name: "ピザトースト", price: 150 },
-            "コーヒー": { name: "コーヒー", price: 100 },
+            "ピザトースト": { name: "ぴざとーすと", price: 100 },
+            "ピザドッグ": { name: "ぴざどっぐ", price: 100 },
             "A003": { name: "コーヒー", price: 120 }
         };
 
@@ -117,7 +117,7 @@
             cart.forEach(item => {
                 const div = document.createElement("div");
                 div.className = "cart-item";
-                div.innerHTML = `<span>${item.name}</span><span>${item.price}円</span>`;
+                div.innerHTML = `<span>${item.name}</span><span>${item.price}えん</span>`;
                 container.appendChild(div);
                 total += item.price;
             });
